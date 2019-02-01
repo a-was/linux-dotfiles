@@ -1,0 +1,54 @@
+alias ins='sudo apt-get install'
+alias update='sudo apt-get update && sudo apt-get upgrade'
+alias python='python3'
+alias root='sudo -i'
+
+# ssh
+alias wit='ssh wasilea3@oceanic.wsisiz.edu.pl'
+alias witunix='ssh wasilea3@unix.wsisiz.edu.pl'
+
+# ls
+alias ls='ls -hF --color=auto'
+
+alias l='ls -CA'
+alias l.='ls -d .*'
+# alias la='ls -A'
+alias ll='ls -oAv --group-directories-first'
+alias lk='ls -oSr'
+alias lt='ls -otr'
+alias ldir='ls -od */'
+alias lm='ll --color | less -r'
+
+
+# files 
+alias rm='rm -dI'
+alias rr='rm -rf'
+alias cp='cp -ir'
+alias mv='mv -i'
+alias mkdir='mkdir -pv'
+
+# useful
+alias q='exit'
+alias c='clear'
+alias cs='clear;l'
+alias k='kill'
+alias t='time'
+alias h='history'
+alias j='jobs -l'
+
+# PATH
+alias back='echo $OLDPWD;cd $OLDPWD'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias calc='bc -l'
+
+alias du='du -h'
+alias DU='du -had1 | sort -h'
+alias mount='mount |column -t'
+alias diff='diff --color'
+alias diffu='diff --color -u'
+
+# for desktop in WSL
+alias desktop='export DISPLAY=:0.0; xfce4-session'
+
