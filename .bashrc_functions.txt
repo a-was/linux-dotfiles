@@ -1,3 +1,30 @@
+function vi() {
+    #echo "You are making a copy of $1 before you open it. Press enter to continue."
+    #read nul
+    \cp $1 ~/.vibackup/$1.bak
+    vim $1
+}
+
+function extract() { 
+if [ -f $1 ] ; then
+	case $1 in
+		*.tar.bz2)   tar xvjf $1     ;;
+		*.tar.gz)    tar xvzf $1     ;;
+		*.bz2)       bunzip2 $1      ;;
+		*.rar)       unrar x $1      ;;
+		*.gz)        gunzip $1       ;;
+		*.tar)       tar xvf $1      ;;
+		*.tbz2)      tar xvjf $1     ;;
+		*.tgz)       tar xvzf $1     ;;
+		*.zip)       unzip $1        ;;
+		*.Z)         uncompress $1   ;;
+		*.7z)        7z x $1         ;;
+		*)           echo "'$1' cannot be extracted via >extract<" ;;
+	esac
+else
+	echo "'$1' is not a valid file!"
+fi
+}
 
 
 
@@ -5,12 +32,83 @@ function mkcd {
   if [ ! -n "$1" ]; then
     echo "Enter a directory name"
   elif [ -d $1 ]; then
-    echo "'$1' already exists"
+    echo "'$1' already exist "
     cd $1
-  else
+  else 
     mkdir $1; cd $1
   fi
 }
 
 
 
+function swap() 
+{ # Swap 2 filenames around, if they exist
+    local TMPFILE=tmp.$$
+    [ $# -ne 2 ] && echo "swap: 2 arguments needed" && return 1
+    [ ! -e $1 ] && echo "swap: $1 does not exist" && return 1
+    [ ! -e $2 ] && echo "swap: $2 does not exist" && return 1
+    mv "$1" $TMPFILE
+    mv "$2" "$1"
+    mv $TMPFILE "$2"
+}
+
+
+# Creates an archive (*.tar.gz) from given directory.
+function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+
+# Create a ZIP archive of a file or folder.
+function makezip() { zip -r "${1%%/}.zip" "$1" ; }
+
+# Make your directories and files access rights sane.
+function sanitize() { chmod -R u=rwX,g=rX,o= "$@" ;}
+
+
+cl() {
+	local dir="$1"
+	local dir="${dir:=$HOME}"
+	if [[ -d "$dir" ]]; then
+		cd "$dir" >/dev/null; ls
+	else
+		echo "bash: cl: $dir: Directory not found"
+	fi
+}
+
+
+note () {
+    # if file doesn't exist, create it
+    if [[ ! -f $HOME/.notes ]]; then
+        touch "$HOME/.notes"
+    fi
+
+    if ! (($#)); then
+        # no arguments, print file
+        cat "$HOME/.notes"
+    elif [[ "$1" == "-c" ]]; then
+        # clear file
+        printf "%s" > "$HOME/.notes"
+    else
+        # add all arguments to file
+        printf "%s\n" "$*" >> "$HOME/.notes"
+    fi
+}
+
+todo() {
+    if [[ ! -f $HOME/.todo ]]; then
+        touch "$HOME/.todo"
+    fi
+
+    if ! (($#)); then
+        cat "$HOME/.todo"
+    elif [[ "$1" == "-l" ]]; then
+        nl -b a "$HOME/.todo"
+    elif [[ "$1" == "-c" ]]; then
+        > $HOME/.todo
+    elif [[ "$1" == "-r" ]]; then
+        nl -b a "$HOME/.todo"
+        eval printf %.0s- '{1..'"${COLUMNS:-$(tput cols)}"\}; echo
+        read -p "Type a number to remove: " number
+        sed -i ${number}d $HOME/.todo "$HOME/.todo"
+    else
+        printf "%s\n" "$*" >> "$HOME/.todo"
+    fi
+}
