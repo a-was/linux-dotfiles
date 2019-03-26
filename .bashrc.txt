@@ -36,8 +36,8 @@ set -o ignoreeof
 set -o vi
 # set -o noclobber
 # l
+# echo "Welcome back ${USER} !"
 
 export EDITOR='vi'
 export VISUAL='vi'
-echo "Welcome back ${USER} !"
 

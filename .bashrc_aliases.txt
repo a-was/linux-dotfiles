@@ -1,10 +1,14 @@
-alias sudo='sudo '
-alias aget='sudo apt-get'
+# system
+alias apt-get='sudo apt-get'
 alias ins='sudo apt-get install'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias python='python3'
+alias py='python3'
 alias root='sudo -i'
 alias bashreload='source ~/.bashrc'
+
+alias aliasy='vim ~/.bashrc_aliases'
+alias funkcje='vim ~/.bashrc_functions'
 
 # ssh
 alias wit='ssh wasilea3@oceanic.wsisiz.edu.pl'
@@ -12,15 +16,15 @@ alias witunix='ssh wasilea3@unix.wsisiz.edu.pl'
 
 # ls
 alias ls='ls -hFA --color=auto'
-# alias ll="ls -lv --color --group-directories-first | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
-
-alias l='ls -C'
+alias l='ls -C --group-directories-first'
 alias l.='ls -d .*'
-# alias ll='ls -ov --group-directories-first'
 alias lk='ls -oSr'
 alias lt='ls -otr'
 alias lm='ll --color | less -r'
 alias lo='ls -vo'
+
+alias ll='ls -ov'
+# alias ll="ls -lv --color --group-directories-first | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
 
 # files 
 alias rm='rm -dI'
@@ -38,16 +42,16 @@ alias k='kill'
 alias t='time'
 alias h='history'
 alias j='jobs -l'
-
 alias calc='bc -l'
-alias du='du -h'
-alias DU='du -had1 | sort -h'
-alias d='du -sh *'
-alias ps='ps auxf'
-alias mount='mount |column -t'
+
 alias diff='diff --color'
 alias diffu='diff --color -u'
 
+alias du='du -h'
+alias DU='du -had1 | sort -h'
+alias d='du -sh *'
+alias mount='mount |column -t'
+alias ps='ps auxf'
 
 # PATH
 alias back='echo $OLDPWD;cd $OLDPWD'
