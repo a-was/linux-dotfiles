@@ -1,10 +1,10 @@
 set number
-set autoindent
-set syntax=on
-set noerrorbells
+set expandtab ts=4 sw=4 ai
 set showmatch
-set vb t_vb=
-set belloff=all
+set syntax=on
+set autoindent
+set noerrorbells
+set visualbell
 
 
 call plug#begin('~/.vim/plugged')
