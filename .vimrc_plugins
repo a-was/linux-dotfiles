@@ -3,7 +3,6 @@ set autoindent
 set syntax=on
 set noerrorbells
 set showmatch
-set novisualbell
 set vb t_vb=
 set belloff=all
 
