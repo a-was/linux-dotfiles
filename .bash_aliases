@@ -39,6 +39,7 @@ alias ...='cd ../..'
 alias back='echo $OLDPWD;cd $OLDPWD'
 alias fhere="find . -name "
 
+
 if [ "$read_functions_file" = true ] ; then
     if [ -f $HOME/.bash_functions ]; then
         . $HOME/.bash_functions
