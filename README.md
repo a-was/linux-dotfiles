@@ -14,6 +14,7 @@ cat linux-dotfiles/.vimrc >> ~/.vimrc
 ```
 or use simple script
 ```bash
-chmod +x linux-dotfiles/apply_dotfiles.sh
-./linux-dotfiles/apply_dotfiles.sh
+cd linux-dotfiles/
+chmod +x apply_dotfiles.sh
+./apply_dotfiles.sh
 ```
