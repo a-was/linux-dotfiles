@@ -50,7 +50,7 @@ note () {
 		> "$HOME/.notes"
 	elif [[ "$1" == "-h" || "$1" == "--help"]]; then
 		# help
-		printf "Simple notebook. Use -c to clear file or -r to remove line\n
+		printf "Simple notebook. Use -c to clear file or -r to remove line\n"
 	elif [[ "$1" == "-c" ]]; then
 		nl -b a "$HOME/.notes"
 		eval printf %.0s- '{1..'"$COLUMNS:-$(tput cols)}"\}; echo
