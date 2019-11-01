@@ -1,18 +1,15 @@
 # linux-dotfiles
 
-Download repo
+To apply all dotfiles  
+
+1. Clone repo
+
 ```bash
 git clone https://github.com/a-wasilewski/linux-dotfiles
 ```
 
+2. Then use my simple script
 
-Then
-```bash
-cat linux-dotfiles/.bash_aliases >> ~/.bash_aliases
-cat linux-dotfiles/.inputrc >> ~/.inputrc
-cat linux-dotfiles/.vimrc >> ~/.vimrc
-```
-or use simple script
 ```bash
 cd linux-dotfiles/
 chmod u+x apply_dotfiles.sh
