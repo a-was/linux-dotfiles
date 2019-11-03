@@ -12,6 +12,5 @@ git clone https://github.com/a-wasilewski/linux-dotfiles
 
 ```bash
 cd linux-dotfiles/
-chmod u+x apply_dotfiles.sh
 ./apply_dotfiles.sh
 ```
