@@ -3,7 +3,7 @@ read_functions_file=true
 
 # system
 alias ins='sudo apt-get install'
-alias update='sudo apt-get update && sudo apt-get upgrade'
+alias update='sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y autoremove'
 alias root='sudo bash'
 
 alias py='python3'
