@@ -49,7 +49,7 @@ note () {
 	elif [[ "$1" == "-c" ]]; then
 		# clear file
 		> "$HOME/.notes"
-	elif [[ "$1" == "-h" || "$1" == "--help"]]; then
+	elif [[ "$1" == "-h" || "$1" == "--help" ]]; then
 		# help
 		printf "Simple notebook. Use -c to clear file or -r to remove line\n"
 	elif [[ "$1" == "-c" ]]; then

@@ -1,5 +1,5 @@
 # if You want to read file with functions or only aliases
-read_functions_file=true
+read_functions_file=false
 
 # system
 alias ins='sudo apt-get install'
