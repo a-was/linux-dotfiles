@@ -1,4 +1,4 @@
-function mkcd {
+function mkcd () {
 	if [ ! -n "$1" ]; then
 		echo "Enter a directory name"
 	elif [ -d $1 ]; then
@@ -11,12 +11,12 @@ function mkcd {
 }
 
 # Creates an archive (*.tar.gz) from given directory
-function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+function maketar () { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 
 # Create a ZIP archive of a file or folder
-function makezip() { zip -r "${1%%/}.zip" "$1" ; }
+function makezip () { zip -r "${1%%/}.zip" "$1" ; }
 
-note () {
+function note () {
 	# if file doesn't exist, create it
 	if [[ ! -f $HOME/.notes ]]; then
 		touch "$HOME/.notes"
@@ -41,7 +41,7 @@ note () {
 	fi
 }
 
-todo() {
+function todo () {
 	if [[ ! -f $HOME/.todo ]]; then
 		touch "$HOME/.todo"
 	fi

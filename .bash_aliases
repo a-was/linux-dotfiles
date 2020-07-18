@@ -1,5 +1,6 @@
-# if You want to read file with functions or only aliases
-read_functions_file=false
+# if You want to read external files
+read_prompt_file=true
+read_functions_file=true
 
 # system
 alias ins='sudo apt-get install'
@@ -13,9 +14,9 @@ alias curljson='curl -X POST -H "Content-Type: application/json"'
 
 # ls
 alias ls='\ls -hFv --color=auto'
-alias ll='ls -l'  # all info
-alias la='ll -A' # with .dotfiles
-alias l='ll -X'  # sort by extension
+alias ll='ls -lA'  # all info
+alias la='ll' # all info
+alias l='ls -lX'  # sort by extension
 alias lk='ll -Sr'  # sort by size
 alias lt='ll -tr'  # sort by time
 alias l.='ll -d .*'  # only .dotfiles
@@ -31,21 +32,23 @@ alias mk='mkdir'
 # other
 alias q='exit'
 alias c='clear'
-alias cs='clear;l'
+alias cs='clear;ll'
 alias calc='bc -l'
 alias du='du -h'
 alias DU='du -had1 | sort -h'
 alias df='df -h'
+alias free='free -m'
 
 # Path
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias back='echo $OLDPWD;cd $OLDPWD'
-alias fhere="find . -name "
+alias fhere='find . -name '
+alias froot='find / -name '
 
 # docker
-dk_ex() {
+function dk_ex () {
     docker exec -it $1 ${2:-bash}
 }
 alias dk='docker'
@@ -56,21 +59,25 @@ alias dks='docker start'
 alias dkst='docker stop'
 
 
-if [ "$read_functions_file" = true ] ; then
-    if [ -f $HOME/.bash_functions ]; then
-        . $HOME/.bash_functions
-    fi
+if $read_prompt_file && [ -f $HOME/.bash_prompt ] ; then
+    . $HOME/.bash_prompt
+fi
+
+if $read_functions_file && [ -f $HOME/.bash_functions ] ; then
+    . $HOME/.bash_functions
 fi
 
 # setting vim as default editor
 export EDITOR='vim'
 export VISUAL='vim'
 
-# 8/16 bit colors user@host:~/path $ 
-# export PS1='\e[92m\u\e[97m@\e[96m\h\e[97m:\e[95m\w\e[97m $ \e[39m'
-
-# user@host [~/path] $ 
-# export PS1='\[\e]0;\u@\h: \w\a\]\[\033[38;5;82m\]\u\[\033[38;5;15m\]@\[\033[38;5;51m\]\h \[\033[38;5;15m\][\[\033[38;5;165m\]\w\[\033[38;5;15m\]] $ \[\033[00m\]'
+# DEFAULT="\[\033[00m\]"
+# WHITE="\[\033[38;5;15m\]"
+# GREEN="\[\033[38;5;82m\]"
+# CYAN="\[\033[38;5;51m\]"
+# PURPLE="\[\033[38;5;165m\]"
 
 # user@host:~/path $ 
-export PS1='\[\e]0;\u@\h: \w\a\]\[\033[38;5;82m\]\u\[\033[38;5;15m\]@\[\033[38;5;51m\]\h\[\033[38;5;15m\]:\[\033[38;5;165m\]\w\[\033[38;5;15m\] $ \[\033[00m\]'
+# export PS1="${GREEN}\u${WHITE}@${CYAN}\h${WHITE}:${PURPLE}\w${WHITE} $ ${DEFAULT}"
+# 8 bit
+# export PS1="\e[92m\u\e[97m@\e[96m\h\e[97m:\e[95m\w\e[97m $ \e[39m"
