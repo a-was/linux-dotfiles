@@ -1,7 +1,3 @@
-# if You want to read external files
-read_prompt_file=true
-read_functions_file=true
-
 # system
 alias ins='sudo apt-get install'
 alias update='sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y autoremove'
@@ -39,7 +35,7 @@ alias DU='du -had1 | sort -h'
 alias df='df -h'
 alias free='free -m'
 
-# Path
+# path
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -57,27 +53,3 @@ alias dki='docker image ls'
 alias dkps='docker ps -a'
 alias dks='docker start'
 alias dkst='docker stop'
-
-
-if $read_prompt_file && [ -f $HOME/.bash_prompt ] ; then
-    . $HOME/.bash_prompt
-fi
-
-if $read_functions_file && [ -f $HOME/.bash_functions ] ; then
-    . $HOME/.bash_functions
-fi
-
-# setting vim as default editor
-export EDITOR='vim'
-export VISUAL='vim'
-
-# DEFAULT="\[\033[00m\]"
-# WHITE="\[\033[38;5;15m\]"
-# GREEN="\[\033[38;5;82m\]"
-# CYAN="\[\033[38;5;51m\]"
-# PURPLE="\[\033[38;5;165m\]"
-
-# user@host:~/path $ 
-# export PS1="${GREEN}\u${WHITE}@${CYAN}\h${WHITE}:${PURPLE}\w${WHITE} $ ${DEFAULT}"
-# 8 bit
-# export PS1="\e[92m\u\e[97m@\e[96m\h\e[97m:\e[95m\w\e[97m $ \e[39m"
