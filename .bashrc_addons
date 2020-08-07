@@ -1,4 +1,6 @@
 
+# ----------------------------------
+# linux-dotfiles
 
 if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
@@ -16,10 +18,6 @@ if $read_functions_file && [ -f $HOME/.bash_functions ] ; then
     . $HOME/.bash_functions
 fi
 
-# setting vim as default editor
-export EDITOR='vim'
-export VISUAL='vim'
-
 # if you don't want to use .bash_prompt - you can use old PS1
 old_ps1=false
 if $old_ps1 ; then
@@ -32,9 +30,14 @@ if $old_ps1 ; then
 
     # user@host:~/path $ 
     export PS1="${GREEN}\u${WHITE}@${CYAN}\h${WHITE}:${PURPLE}\w${WHITE} $ ${DEFAULT}"
-    8 bit
-    export PS1="\e[92m\u\e[97m@\e[96m\h\e[97m:\e[95m\w\e[97m $ \e[39m"
+    # 8 bit
+    # export PS1="\e[92m\u\e[97m@\e[96m\h\e[97m:\e[95m\w\e[97m $ \e[39m"
 fi
+
+# setting vim as default editor
+export EDITOR='vim'
+export VISUAL='vim'
 
 umask 027
 $HOME/.ufetch.sh
+# ----------------------------------
