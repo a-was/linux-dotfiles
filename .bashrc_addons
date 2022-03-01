@@ -1,4 +1,3 @@
-
 # ----------------------------------
 # linux-dotfiles
 
@@ -6,32 +5,8 @@ if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
 fi
 
-# if you want to read external files
-read_prompt_file=true
-read_functions_file=true
-
-if $read_prompt_file && [ -f $HOME/.bash_prompt ] ; then
-    . $HOME/.bash_prompt
-fi
-
-if $read_functions_file && [ -f $HOME/.bash_functions ] ; then
+if [ -f $HOME/.bash_functions ]; then
     . $HOME/.bash_functions
-fi
-
-# if you don't want to use .bash_prompt - you can use old PS1
-old_ps1=false
-if $old_ps1 ; then
-    # colors
-    DEFAULT="\[\033[00m\]"
-    WHITE="\[\033[38;5;15m\]"
-    GREEN="\[\033[38;5;82m\]"
-    CYAN="\[\033[38;5;51m\]"
-    PURPLE="\[\033[38;5;165m\]"
-
-    # user@host:~/path $ 
-    export PS1="${GREEN}\u${WHITE}@${CYAN}\h${WHITE}:${PURPLE}\w${WHITE} $ ${DEFAULT}"
-    # 8 bit
-    # export PS1="\e[92m\u\e[97m@\e[96m\h\e[97m:\e[95m\w\e[97m $ \e[39m"
 fi
 
 # setting vim as default editor
@@ -39,5 +14,12 @@ export EDITOR='vim'
 export VISUAL='vim'
 
 umask 027
-$HOME/.ufetch.sh
+
+# source <(kubectl completion zsh)
+# alias k='kubectl'
+# complete -F __start_kubectl k
+# source <(helm completion zsh)
+
+export DOCKER_BUILDKIT=1
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
 # ----------------------------------

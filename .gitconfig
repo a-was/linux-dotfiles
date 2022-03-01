@@ -1,0 +1,32 @@
+[core]
+    editor = code --wait
+[help]
+	autoCorrect = 1
+[alias]
+    s = status
+    b = branch -avv
+    f = fetch
+    cb = checkout -b
+    co = checkout
+
+    l = log
+    lo = log --oneline
+    lg = log --graph
+    log-graph = log --graph --all --oneline --decorate
+
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+# store http credentials in .git-credentials file
+# [credential]
+# 	helper = store
+
+# include additional config file in specified directory
+# [includeIf "gitdir:~/code/"]
+#     path = ~/.gitconfig-code

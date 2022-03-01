@@ -1,21 +1,21 @@
 # system
-alias ins='sudo apt-get install'
 alias update='sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y autoremove'
-alias root='sudo bash'
+alias u1='sudo apt update'
+alias u2='sudo apt list --upgradable'
+alias u3='sudo apt upgrade -V'
+alias u4='sudo apt autoremove'
 
 alias vi='vim'
-alias py='python3'
 alias p='python3'
-alias curljson='curl -X POST -H "Content-Type: application/json"'
 
 # ls
 alias ls='\ls -hFv --color=auto'
-alias ll='ls -lA'  # all info
-alias la='ll' # all info
-alias l='ls -lX'  # sort by extension
-alias lk='ll -Sr'  # sort by size
-alias lt='ll -tr'  # sort by time
-alias l.='ll -d .*'  # only .dotfiles
+alias ll='ls -lA'   # all info
+alias la='ll'       # all info
+alias l='ls -lX'    # sort by extension
+alias lk='ll -Sr'   # sort by size
+alias lt='ll -tr'   # sort by time
+alias l.='ll -d .*' # only .dotfiles
 
 # files
 alias rm='rm -dI'
@@ -43,13 +43,10 @@ alias back='echo $OLDPWD;cd $OLDPWD'
 alias fhere='find . -name '
 alias froot='find / -name '
 
-# docker
-function dk_ex () {
-    docker exec -it $1 ${2:-bash}
-}
-alias dk='docker'
-alias dkex='dk_ex'
-alias dki='docker image ls'
-alias dkps='docker ps -a'
-alias dks='docker start'
-alias dkst='docker stop'
+# git
+alias gs='git status'
+alias gc='git commit'
+alias gcm='git commit . -m'
+alias gb='git branch'
+alias gcb='git checkout -b'
+alias gmnff='git merge --no-ff -e'

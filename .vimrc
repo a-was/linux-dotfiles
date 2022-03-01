@@ -13,6 +13,8 @@ set autoindent
 set expandtab ts=4 sw=4
 set showmatch
 
+# ---
+
 set laststatus=2
 set ruler
 

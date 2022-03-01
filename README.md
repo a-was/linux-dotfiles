@@ -1,14 +1,14 @@
 # linux-dotfiles
 
-To apply all dotfiles  
+To apply all dotfiles
 
 1. Clone repo
 
 ```bash
-git clone https://github.com/a-wasilewski/linux-dotfiles
+git clone https://github.com/a-was/linux-dotfiles
 ```
 
-2. Then use my simple script
+2. Then use simple script
 
 ```bash
 cd linux-dotfiles/
