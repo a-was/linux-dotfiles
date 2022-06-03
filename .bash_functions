@@ -22,6 +22,8 @@ function makezip {
 }
 alias mkzip='makezip'
 
+# git
+
 # deletes local branches that was deleted on remote
 function code-cleanup {
 	git fetch -p
@@ -51,4 +53,17 @@ function code-pull {
 # pulls all branches
 function code-pull-all {
 	git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+}
+
+# docker
+
+# stops all docker containers
+function stop-containers() {
+	docker ps --format "{{.Names}}" | xargs -I {} docker stop {}
+}
+
+# stops and removes all docker containers
+function rm-containers() {
+	stop-containers
+	docker ps -a --format "{{.Names}}" | xargs -I {} --no-run-if-empty docker rm {}
 }
