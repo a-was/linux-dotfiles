@@ -10,13 +10,13 @@ if [ -f $HOME/.bash_functions ]; then
 fi
 
 # setting vim as default editor
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR="vim"
+export VISUAL="vim"
 
 umask 027
 
 # source <(kubectl completion zsh)
-# alias k='kubectl'
+# alias k="kubectl"
 # complete -F __start_kubectl k
 # source <(helm completion zsh)
 
