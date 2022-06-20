@@ -34,9 +34,7 @@ function code-cleanup {
 		return
 	fi
 
-	for branch in $branches; do
-		git branch --delete --force $branch
-	done
+	echo $branches | xargs -I{} --no-run-if-empty git branch --delete --force {}
 }
 
 # pulls all local branches
