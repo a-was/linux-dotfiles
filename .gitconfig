@@ -1,11 +1,11 @@
 [core]
     editor = code --wait
 [help]
-	autoCorrect = 1
+    autoCorrect = 1
 [alias]
     s = status
     b = branch -avv
-    f = fetch
+    f = fetch --all --prune
     cb = checkout -b
     co = checkout
 
@@ -25,7 +25,7 @@
 
 # store http credentials in .git-credentials file
 # [credential]
-# 	helper = store
+#     helper = store
 
 # include additional config file in specified directory
 # [includeIf "gitdir:~/code/"]
