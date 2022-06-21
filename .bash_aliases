@@ -78,6 +78,11 @@ function makezip {
 }
 alias mkzip="makezip"
 
+function localip() {
+	echo $(ip route get 1.1.1.1 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
+}
+export LOCAL_IP=$(localip)
+
 # git
 
 # deletes local branches that was deleted on remote
