@@ -131,3 +131,23 @@ function containers-rm() {
 	containers-stop
 	docker ps -a --format "{{.Names}}" | xargs -I{} --max-procs 5 --no-run-if-empty docker rm {}
 }
+
+# bat
+if command -v bat &> /dev/null; then
+	alias cat="bat"
+
+	function tf() {
+		tail -f $1 | bat --paging=never ${@:2}
+	}
+
+	function tfl() {
+		tail -f $1 | bat --paging=never -l log
+	}
+
+	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+	export MANROFFOPT="-c"
+
+	help() {
+		"$@" --help 2>&1 | bat --plain --language=help
+	}
+fi
