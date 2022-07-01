@@ -151,3 +151,9 @@ if command -v bat &> /dev/null; then
 		"$@" --help 2>&1 | bat --plain --language=help
 	}
 fi
+
+# exa
+if command -v exa &> /dev/null; then
+	alias l="exa -lgF --octal-permissions"
+	alias ll="exa -lagF --octal-permissions"
+fi
