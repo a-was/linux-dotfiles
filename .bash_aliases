@@ -134,6 +134,9 @@ function containers-rm() {
 
 # bat
 if command -v bat &> /dev/null; then
+	export BAT_THEME="Visual Studio Dark+"
+	# export BAT_THEME="gruvbox-dark"
+
 	alias cat="bat"
 
 	function tf() {
