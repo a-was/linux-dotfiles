@@ -1,8 +1,10 @@
 # ----------------------------------
 # linux-dotfiles
 
-if [ -f $HOME/.bash_aliases ]; then
-    . $HOME/.bash_aliases
+if [[ -d $HOME/.bashrc.d ]]; then
+    for file in $HOME/.bashrc.d/*; do
+        . $file
+    done
 fi
 
 # setting vim as default editor
