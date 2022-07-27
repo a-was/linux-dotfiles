@@ -29,3 +29,16 @@ if has_cmd bat; then
 		"$@" --help 2>&1 | bat --plain --language=help
 	}
 fi
+
+if has_cmd CompileDaemon; then
+	function gocd() {
+		CompileDaemon \
+			-build="true" \
+			-command="${1:-go run .}" \
+			-command-stop="true" \
+			-directory="${2:-.}" \
+			-include="*.sh" \
+			-color="true" \
+			-log-prefix="false" \
+	}
+fi
