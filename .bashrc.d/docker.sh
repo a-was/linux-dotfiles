@@ -1,6 +1,11 @@
 # removes all stopped docker containers
 function containers-cleanup() {
-	docker ps -a --format "{{.Names}}" --filter "status=exited" --filter "status=dead" | xargs -I{} --max-procs 5 --no-run-if-empty docker rm {}
+	docker ps -a \
+		--format "{{.Names}}" \
+		--filter "status=exited" \
+		--filter "status=dead" \
+		--filter "status=created" \
+	| xargs -I{} --max-procs 5 --no-run-if-empty docker rm {}
 }
 
 # stops all docker containers
