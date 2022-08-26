@@ -40,5 +40,6 @@ if has_cmd CompileDaemon; then
 			-include="*.sh" \
 			-color="true" \
 			-log-prefix="false" \
+
 	}
 fi
