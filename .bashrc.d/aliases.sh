@@ -4,6 +4,7 @@ alias u1="sudo apt update"
 alias u2="sudo apt list --upgradable"
 alias u3="sudo apt upgrade -V"
 alias u4="sudo apt autoremove"
+# alias update="sudo dnf upgrade --refresh"
 
 alias vi="vim"
 alias p="python3"
@@ -42,3 +43,6 @@ alias ....="cd ../../.."
 alias back="echo $OLDPWD; cd $OLDPWD"
 alias fhere="find . -name "
 alias froot="find / -name "
+
+# other
+alias vsc="code ."
