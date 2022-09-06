@@ -1,11 +1,20 @@
 # git
+alias g="git"
 alias gs="git status"
+
+alias gb="git branch"
+alias gbd="git branch --delete --force"
+alias gcb="git checkout -b"
+
 alias gc="git commit"
 alias gcm="git commit . -m"
-alias gb="git branch"
-alias gcb="git checkout -b"
+
+alias gf="git fetch"
+alias gfa="git fetch --all --prune"
+
 alias gmnff="git merge --no-ff -e"
 alias gsps="git stash && git pull && git stash pop"
+alias gcl="git clone --recurse-submodules"
 
 # deletes local branches that was deleted on remote
 function code-cleanup {
@@ -34,4 +43,32 @@ function code-pull {
 # pulls all branches
 function code-pull-all {
 	git branch -r | grep -v "\->" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+}
+
+# renames old branch to new, including in origin remote
+function code-rename-branch {
+	if [[ -z "$1" || -z "$2" ]]; then
+		echo "Usage: $0 old_branch new_branch"
+		return 1
+	fi
+
+	# rename branch locally
+	git branch --move "$1" "$2"
+	# rename branch in origin remote
+	if git push origin :"$1"; then
+		git push --set-upstream origin "$2"
+	fi
+}
+
+# deletes branch, including in origin remote
+function code-delete-branch {
+	if [[ -z "$1" ]]; then
+		echo "Usage: $0 branch_to_delete"
+		return 1
+	fi
+
+	# delete branch locally
+	git branch --delete "$1"
+	# delete branch in origin remote
+	git push origin :"$1"
 }
