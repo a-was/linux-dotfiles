@@ -1,4 +1,23 @@
-plugins=(git docker docker-compose zsh-autosuggestions)
+ZSH_THEME="robbyrussell"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="%F{yellow}...%f"
+HIST_STAMPS="yyyy-mm-dd"
+
+plugins=(
+    git
+    docker
+    docker-compose
+    zsh-autosuggestions
+    kubectl
+    helm
+    # dotenv
+    pip
+    httpie
+    copyfile
+    copypath
+    rsync
+)
+
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

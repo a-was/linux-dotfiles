@@ -1,6 +1,9 @@
 # ----------------------------------
 # linux-dotfiles
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 if [[ -d $HOME/.bashrc.d ]]; then
     for file in $HOME/.bashrc.d/*; do
         . $file
@@ -13,11 +16,11 @@ export VISUAL="vim"
 
 umask 027
 
-# source <(kubectl completion zsh)
+# source <(kubectl completion bash)
 # alias k="kubectl"
 # complete -F __start_kubectl k
-# source <(helm completion zsh)
-# source <(k3d completion zsh)
+# source <(helm completion bash)
+# source <(k3d completion bash)
 
 export DOCKER_BUILDKIT=1
 export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
