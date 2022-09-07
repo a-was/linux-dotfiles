@@ -12,7 +12,7 @@ if has_cmd bat; then
 	export BAT_THEME="Visual Studio Dark+"
 	# export BAT_THEME="gruvbox-dark"
 
-	alias cat="bat"
+	alias cat="bat -p"
 
 	function tf() {
 		tail -f $1 | bat --paging=never ${@:2}
