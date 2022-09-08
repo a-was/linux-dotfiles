@@ -2,6 +2,8 @@
     editor = code --wait
 [help]
     autoCorrect = 1
+[fetch]
+    prune = true
 [alias]
     s = status
     b = branch -avv
