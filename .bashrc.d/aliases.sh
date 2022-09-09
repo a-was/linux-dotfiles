@@ -5,6 +5,7 @@ alias u2="sudo apt list --upgradable"
 alias u3="sudo apt upgrade -V"
 alias u4="sudo apt autoremove"
 # alias update="sudo dnf upgrade --refresh"
+# alias update-no-kernel='sudo dnf upgrade --refresh --exclude="kernel*"'
 
 alias vi="vim"
 alias p="python3"
