@@ -4,7 +4,7 @@ set -ex
 echo >> ~/.bashrc
 cat .bashrc_addons >> ~/.bashrc
 
-cp .bashrc.d ~/.bashrc.d
+cp -r .bashrc.d ~/.bashrc.d
 
 files=(".inputrc" ".vimrc")
 for file in $files; do
