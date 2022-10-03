@@ -30,6 +30,15 @@ if has_cmd bat; then
 	}
 fi
 
+if has_cmd go; then
+	function gomod() {
+		find . -name "go.mod" -printf "%h\n" \
+		| sort -u \
+		| xargs -I{} bash -c "echo {} && cd {} && go mod tidy" \
+
+	}
+fi
+
 if has_cmd CompileDaemon; then
 	function gocd() {
 		CompileDaemon \
