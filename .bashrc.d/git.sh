@@ -84,3 +84,15 @@ function code-delete-branch {
 	# delete branch in origin remote
 	git push origin :"$1"
 }
+
+function code-create-tag {
+	if [[ -z "$1" ]]; then
+		echo "Usage: $0 tag_to_create"
+		return 1
+	fi
+
+	# create tag locally
+	git tag $1
+	# create tag in origin remote
+	git push origin $1
+}
