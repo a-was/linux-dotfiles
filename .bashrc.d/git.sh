@@ -13,8 +13,20 @@ alias gf="git fetch"
 alias gfa="git fetch --all --prune"
 
 alias gmnff="git merge --no-ff -e"
-alias gsps="git stash && git pull && git stash pop"
+# alias gsps="git stash && git pull && git stash pop"
 alias gcl="git clone --recurse-submodules"
+
+unalias gsps 2>/dev/null
+function gsps {
+	echo "Git stash"
+	git stash -u
+	echo
+	echo "Git pull"
+	git pull
+	echo
+	echo "Git stash pop"
+	git stash pop
+}
 
 # deletes local branches that was deleted on remote
 function code-cleanup {
