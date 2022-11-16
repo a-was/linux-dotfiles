@@ -14,6 +14,15 @@
     lg = log --graph
     log-graph = log --graph --all --oneline --decorate
 
+    purr = pull --rebase
+
+    fixgitignore = !git rm -r --cached .
+
+[fetch]
+    prune = true
+[push]
+    autoSetupRemote = true
+
 [diff]
     tool = vscode
 [difftool "vscode"]
