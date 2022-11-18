@@ -1,5 +1,5 @@
 ZSH_THEME="robbyrussell"
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="%F{yellow}...%f"
 HIST_STAMPS="yyyy-mm-dd"
 
