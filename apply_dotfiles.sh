@@ -1,14 +1,15 @@
 #!/bin/bash
-
 set -ex
 
 echo >> ~/.bashrc
 cat .bashrc_addons >> ~/.bashrc
 
-files=(".bash_aliases" ".inputrc" ".vimrc")
+cp -r .bashrc.d ~/.bashrc.d
+
+files=(".inputrc" ".vimrc")
 for file in $files; do
-    if [ -f $HOME/$file ]; then
-        mv $HOME/$file $HOME/$file.old
+    if [ -f ~/$file ]; then
+        mv ~/$file ~/$file.old
     fi
-    cp $file $HOME/$file
+    cp $file ~/$file
 done
