@@ -16,6 +16,9 @@ alias gmnff="git merge --no-ff -e"
 # alias gsps="git stash && git pull && git stash pop"
 alias gcl="git clone --recurse-submodules"
 
+alias gsp="git stash pop"
+alias gsd="git stash drop"
+
 unalias gsps 2>/dev/null
 function gsps {
 	echo "Git stash"

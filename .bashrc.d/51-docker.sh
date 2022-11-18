@@ -1,3 +1,7 @@
+if ! has_cmd docker; then
+    return
+fi
+
 # removes all stopped docker containers
 function containers-cleanup() {
 	docker ps -a \
