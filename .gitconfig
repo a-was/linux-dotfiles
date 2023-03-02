@@ -2,21 +2,19 @@
     editor = code --wait
 [help]
     autoCorrect = 1
-[fetch]
-    prune = true
 [alias]
     s = status
-    b = branch -avv
+	ss = status -sb
+    b = branch -all -vv
     f = fetch --all --prune
     cb = checkout -b
     co = checkout
 
-    l = log
-    lo = log --oneline
-    lg = log --graph
-    log-graph = log --graph --all --oneline --decorate
+	l = log --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad\\%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	lol = log --graph --decorate --oneline
 
     purr = pull --rebase
+	rao = remote add origin
 
     fixgitignore = !git rm -r --cached .
 

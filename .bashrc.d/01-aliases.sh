@@ -8,7 +8,6 @@ alias u4="sudo apt autoremove"
 # alias update-no-kernel='sudo dnf upgrade --refresh --exclude="kernel*"'
 
 alias vi="vim"
-alias p="python3"
 
 # ls
 alias ls="\ls -hFv --color=auto"
@@ -30,7 +29,7 @@ alias mk="mkdir"
 # other
 alias q="exit"
 alias c="clear"
-alias cs="clear;ll"
+alias cs="clear && ll"
 alias calc="bc -l"
 alias du="du -h"
 alias DU="du -had1 | sort -h"
@@ -41,9 +40,12 @@ alias free="free -m"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias back="echo $OLDPWD; cd $OLDPWD"
+alias back="echo $OLDPWD && cd $OLDPWD"
 alias fhere="find . -name "
 alias froot="find / -name "
 
 # other
 alias vsc="code ."
+alias ports="netstat -plnt"
+alias servedir="python -m http.server"
+alias tf="tail -f"

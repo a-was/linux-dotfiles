@@ -1,5 +1,4 @@
 # git
-alias g="git"
 alias gs="git status"
 
 alias gb="git branch"
