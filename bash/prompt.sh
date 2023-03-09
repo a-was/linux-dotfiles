@@ -1,8 +1,8 @@
 function __myprompt_right {
     local OUT=""
 
-    if [[ -n "$VIRTUAL_ENV_PROMPT" ]]; then
-        OUT+="$VIRTUAL_ENV_PROMPT"
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        OUT+="$(basename "$VIRTUAL_ENV")"
     fi
 
     if [[ -n "$OUT" ]]; then
@@ -23,7 +23,7 @@ function __myprompt {
     local RESET='\[$(tput sgr0)\]'
     # local RESET='\[\033[0m\]\n'
 
-    PS1='\[$(tput sc; __pc_rightprompt; tput rc)\]'
+    PS1='\[$(tput sc; __myprompt_right; tput rc)\]'
     # PS1=""
 
     # if [[ -n "$VIRTUAL_ENV_PROMPT" ]]; then
