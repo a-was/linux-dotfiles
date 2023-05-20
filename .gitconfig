@@ -17,6 +17,7 @@
     rao = remote add origin
 
     fixgitignore = !git rm -r --cached .
+    make-exec = update-index --chmod=+x
 
 [fetch]
     prune = true
