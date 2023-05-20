@@ -1,4 +1,3 @@
-# git
 alias gs="git status"
 
 alias gb="git branch"
@@ -54,6 +53,15 @@ function code-pull {
 	git checkout $current
 }
 
+# pulls local branch
+function code-pull-branch {
+	if [[ -z "$1" ]]; then
+		echo "Usage: $0 [branch_to_pull]"
+		return 1
+	fi
+	git fetch origin $1:$1
+}
+
 # pulls all branches
 function code-pull-all {
 	git branch -r | grep -v "\->" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
@@ -62,7 +70,7 @@ function code-pull-all {
 # renames old branch to new, including in origin remote
 function code-rename-branch {
 	if [[ -z "$1" || -z "$2" ]]; then
-		echo "Usage: $0 old_branch new_branch"
+		echo "Usage: $0 [old_branch] [new_branch]"
 		return 1
 	fi
 
@@ -77,7 +85,7 @@ function code-rename-branch {
 # deletes branch, including in origin remote
 function code-delete-branch {
 	if [[ -z "$1" ]]; then
-		echo "Usage: $0 branch_to_delete"
+		echo "Usage: $0 [branch_to_delete]"
 		return 1
 	fi
 
@@ -89,7 +97,7 @@ function code-delete-branch {
 
 function code-create-tag {
 	if [[ -z "$1" ]]; then
-		echo "Usage: $0 tag_to_create"
+		echo "Usage: $0 [tag_to_create]"
 		return 1
 	fi
 
