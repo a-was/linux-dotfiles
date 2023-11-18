@@ -6,6 +6,7 @@
     s = status
     ss = status -sb
     b = branch -all -vv
+    bd = branch --delete
     f = fetch --all --prune
     cb = checkout -b
     co = checkout
@@ -15,8 +16,10 @@
 
     purr = pull --rebase
     rao = remote add origin
+    reset-to-upstream = reset --hard "@{upstream}"
+    mnff = merge --no-ff
 
-    fixgitignore = !git rm -r --cached .
+    fix-gitignore = !git rm -r --cached .
     make-exec = update-index --chmod=+x
 
 [fetch]
