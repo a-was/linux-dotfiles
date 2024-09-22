@@ -1,0 +1,14 @@
+# ~/.config/starship.toml
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[directory]
+truncation_length = -1
+use_os_path_sep = false
+
+[status]
+disabled = false
+symbol = ""
+
+[conda]
+symbol = ""

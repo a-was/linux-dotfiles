@@ -1,5 +1,7 @@
 # system
-alias update="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y autoremove"
+alias sudo="sudo "
+
+alias update="sudo apt update && sudo apt list --upgradable && sudo apt upgrade && sudo apt -y autoremove"
 alias u1="sudo apt update"
 alias u2="sudo apt list --upgradable"
 alias u3="sudo apt upgrade -V"
@@ -46,7 +48,12 @@ alias fhere="find . -name "
 alias froot="find / -name "
 
 # other
-alias vsc="code ."
 alias ports="netstat -plnt"
-alias servedir="python -m http.server"
 alias tf="tail -f"
+alias shreddir="find . -type f -exec shred -uvz {} \;"
+
+alias servedir="python -m http.server"
+alias pipi="pip install -U"
+alias pipir="pip install -U -r requirements.txt"
+
+alias vsc="code ."

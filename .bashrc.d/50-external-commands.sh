@@ -14,6 +14,7 @@ if has_cmd bat; then
 
 	alias cat="bat -p"
 
+	unalias tf 2>/dev/null
 	function tf() {
 		tail -f $1 | bat --paging=never ${@:2}
 	}
@@ -24,8 +25,4 @@ if has_cmd bat; then
 
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 	export MANROFFOPT="-c"
-
-	help() {
-		"$@" --help 2>&1 | bat --plain --language=help
-	}
 fi

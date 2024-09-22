@@ -1,11 +1,16 @@
 #!/bin/bash
-set -ex
+set -e
 
-git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
-echo 'source ~/gitstatus/gitstatus.prompt.sh' >> ~/.bashrc
+git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/.local/gitstatus
 
-echo >> ~/.bashrc
+cp _prompt.sh ~/.bashrc.d/00-prompt.sh
 
-cp prompt.sh ~/.bashrc.d/00-prompt.sh
-echo 'source ~/.bashrc.d/00-prompt.sh' >> ~/.bashrc
-echo 'export PROMPT_COMMAND="__myprompt"' >> ~/.bashrc
+cat << EOF >> ~/.bashrc
+
+>>> linux-dotfiles prompt >>>
+source ~/.local/gitstatus/gitstatus.prompt.sh
+source ~/.bashrc.d/00-prompt.sh
+export PROMPT_COMMAND="__myprompt"
+<<< linux-dotfiles prompt <<<
+
+EOF

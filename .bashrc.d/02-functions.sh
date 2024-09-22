@@ -25,4 +25,12 @@ alias mkzip="makezip"
 function localip() {
 	echo $(ip route get 1.1.1.1 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
 }
-export LOCAL_IP=$(localip)
+# export LOCAL_IP=$(localip)
+
+function tail-with-date {
+	tail -f $@ | while read ; do echo "$(date +%T.%4N) $REPLY" ; done
+}
+
+function processes-per-user {
+	ps hax -o user | sort | uniq -c | sort -n
+}

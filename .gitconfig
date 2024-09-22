@@ -1,31 +1,40 @@
+[user]
+	email = 
+	name = 
 [core]
     editor = code --wait
 [help]
     autoCorrect = 1
+[fetch]
+    prune = true
+[push]
+    autoSetupRemote = true
 [alias]
     s = status
     ss = status -sb
-    b = branch -all -vv
+    c = commit
+    b = branch --all -vv
     bd = branch --delete
     f = fetch --all --prune
-    cb = checkout -b
     co = checkout
+    cb = checkout -b
 
     l = log --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad\\%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
     lol = log --graph --decorate --oneline
 
     purr = pull --rebase
     rao = remote add origin
-    reset-to-upstream = reset --hard "@{upstream}"
     mnff = merge --no-ff
 
     fix-gitignore = !git rm -r --cached .
     make-exec = update-index --chmod=+x
 
-[fetch]
-    prune = true
-[push]
-    autoSetupRemote = true
+    reset-to-upstream = reset --hard "@{upstream}"
+    create-tag = "!f() { git tag "$1" && git push origin "$1"; }; f"
+    pull-branch = "!f() { git fetch origin "$1":"$1"; }; f"
+    rename-branch = "!f() { git branch --move "$1" "$2" && git push -u origin "$2" && git push origin :"$1"; }; f"
+    delete-branch = "!f() { git push origin :"$1" && git branch --delete "$1"; }; f"
+    delete-branch-remote = "!f() { git push origin :"$1"; }; f"
 
 [diff]
     tool = vscode
